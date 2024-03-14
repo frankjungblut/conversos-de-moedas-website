@@ -3,20 +3,15 @@
     margin: 0;
     box-sizing: border-box;
     font-family: "Roboto", sans-serif;
+    outline: none;
 }
 
 body {
     background-color: #8A51FC;
 }
 
-input {
-    display: block;
-    width: calc(100% - 1px);
-}
-
 label {
-    display: block;
-    color: #777;
+    color: #777777;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
@@ -25,42 +20,80 @@ label {
 }
 
 button {
-    width: calc(45vh - 7vh - 1%);
-    margin: 23px 0;
+    width: 327px;
     height: 48px;
     flex-shrink: 0;
     border-radius: 5px;
     background: #772FD3;
-    border: none;
     color: #FFF;
     font-size: 18px;
     font-style: normal;
     font-weight: 700;
     line-height: 18px;
-    box-sizing: border-box;
+    border: none;
+}
+
+select,
+input {
+    background: #FFFFFF;
+    border: 1px solid;
+    border-radius: 4px;
+    height: 48px;
+    width: 100%;
+    margin-bottom: 24px;
+    appearance: none;
+    padding-left: 18px;
+    font-weight: 700;
+    font-size: 16px;
+    color: #555555;
 }
 
 .logo {
     display: block;
-    width: auto;
-    height: 15vh;
-    margin: 12px auto;
+    width: 300px;
+    margin: 20px auto;
 }
 
 .frame {
     display: block;
-    width: 45vh;
-    height: 75vh;
+    width: 375px;
     border-radius: 20px;
     background: #F4F4F4;
-    margin: 16px auto;
-    padding: 24px 24px 23px;
+    margin: 0 auto;
+    padding: 44px 24px 23px;
 }
 
-.div-box {
-    width: 100%;
-    height: 37%;
+.section-box {
+    margin-top: 36px;
+    width: 327px;
+    padding: 16px;
     flex-shrink: 0;
     border-radius: 20px;
     border: 1px solid #772FD3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+p {
+    color: #777;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+    text-align: center;
+}
+
+.arrow {
+    margin: 15px 0 13.06px;
+}
+
+.cifras {
+    color: #555;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 18px;
 }
