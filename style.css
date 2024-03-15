@@ -31,6 +31,7 @@ button {
     font-weight: 700;
     line-height: 18px;
     border: none;
+    cursor: pointer;
 }
 
 select,
@@ -46,6 +47,10 @@ input {
     font-weight: 700;
     font-size: 16px;
     color: #555555;
+}
+
+button:active{
+    opacity: 0.4;
 }
 
 .logo {
@@ -90,7 +95,7 @@ p {
     margin: 15px 0 13.06px;
 }
 
-.cifras {
+.currencyValuetoConvert, .currencyValueConverted {
     color: #555;
     font-size: 20px;
     font-style: normal;
