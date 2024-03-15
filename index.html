@@ -17,15 +17,15 @@
     <img class="logo" src="assets/logo.gif" alt="money change logo">
     <main class="frame">
         <label for="">Converter <b>de</b>
-            <select name="" id="">
-                <option value="">R$ Real Brasileiro</option>
+            <select class="currency-select-current">
+                <option value="real">R$ Real Brasileiro</option>
             </select>
         </label>
 
         <label for="">Converter <b>para</b>
-            <select name="" id="">
-                <option value="">US$ Dolar Americano</option>
-                <option value="">€ Euro</option>
+            <select class="currency-select-to-convert">
+                <option value="dolar" >US$ Dolar Americano</option>
+                <option value="euro">€ Euro</option>
             </select>
         </label>
 
@@ -38,14 +38,14 @@
         <section class="section-box">
             <div>
                 <img src="assets/brasil.png" alt="brasil">
-                <p>Real</p>
-                <p class="currencyValuetoConvert"><b>R$ 0,00</b></p>
+                <p class="currency">Real</p>
+                <p class="currency-value-to-convert"><b>R$ 0,00</b></p>
             </div>
             <img src="assets/arrow.png" alt="arrow" class="arrow">
             <div>
-                <img src="assets/estados-unidos.png" alt="USA">
-                <p>Dólar</p>
-                <p class="currencyValueConverted"><b>US$ 0,00</b></p>
+                <img class="img-converted" src="assets/estados-unidos.png" alt="USA">
+                <p class="currency" id="currency-name" >Dólar</p>
+                <p class="currency-value-converted"><b>US$ 0,00</b></p>
             </div>
         </section>
     </main>
