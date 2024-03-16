@@ -1,13 +1,13 @@
-Projeto de conversor de moedas.
+Projeto de conversor de moedas.<br><br>
 
 - atualmente o projeto converte apenas do real para outras moedas;
 
 Nível: Iniciante;
 
--ESTE PROJETO SERÁ MELHORADO A MEDIDA QUE MEU CONHECIMENTO EM PROGRAMAÇÃO FOR SUBINDO
+-ESTE PROJETO SERÁ MELHORADO A MEDIDA QUE MEU CONHECIMENTO EM PROGRAMAÇÃO FOR SUBINDO;
 
-FUTURAS MELHORIAS:
-  -PEGAR COTAÇÃO EM TEMPO REAL
-  -REALIZAR CONVERSÃO ENTRE TODAS AS MOEDAS
+FUTURAS MELHORIAS:<br>
+  -PEGAR COTAÇÃO EM TEMPO REAL;
+  -REALIZAR CONVERSÃO ENTRE TODAS AS MOEDAS;
 
-  Site disponível em: https://frankjungblut.github.io/conversos-de-moedas-website/
+ <br><br> Site disponível em: https://frankjungblut.github.io/conversos-de-moedas-website/
