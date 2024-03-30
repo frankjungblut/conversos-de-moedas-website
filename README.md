@@ -1,4 +1,4 @@
-Projeto de conversor de moedas.<br><br>
+Projeto de conversor de moedas. :moneybag:<br><br>
 
 - atualmente o projeto converte apenas do real para outras moedas;
 
