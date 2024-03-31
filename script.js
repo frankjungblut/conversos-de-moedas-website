@@ -13,7 +13,7 @@ async function convertValues() {
     const inputCurrencyValue = document.querySelector(".input-currency").value // valor digitado pelo usuario
     const currencyValueToConvert = document.querySelector(".currency-value-to-convert")
     const currencyValueConverted = document.querySelector(".currency-value-converted")
-    
+
     const quoteData = await getQuote()
     const price = (quoteData[`${selectedCurrency.value}${CurrentCurrency.value}`].bid)
 
@@ -46,7 +46,7 @@ async function convertValues() {
         }).format(inputCurrencyValue)
     }
 
-    //moeda convertida
+    //moeda convertida - lógica para conversão de valores 
     if (!(CurrentCurrency.value == selectedCurrency.value)) {
         if (CurrentCurrency.value == "BRL") {//BRL
             if (selectedCurrency.value == "USD") {
@@ -80,7 +80,7 @@ async function convertValues() {
                     currency: "BRL"
                 }).format(convertedValue)
             }
-        }else if(CurrentCurrency.value == "USD"){//moeda local dolar
+        } else if (CurrentCurrency.value == "USD") {//moeda local dolar
             if (selectedCurrency.value == "EUR") {
                 const convertedValue = inputCurrencyValue / price
                 currencyValueConverted.innerHTML = new Intl.NumberFormat("de-DE", {
@@ -106,40 +106,6 @@ async function convertValues() {
                     currency: "BRL"
                 }).format(convertedValue)
             }
-        }
-    }
-    //par igual de moeda -- melhorar a lógica para mais pares de moeda
-    if (CurrentCurrency.value == selectedCurrency.value) {
-        if (selectedCurrency.value == "USD") {
-            const convertedValue = inputCurrencyValue
-            currencyValueConverted.innerHTML = new Intl.NumberFormat("en-US", {
-                style: "currency",
-                currency: "USD"
-            }).format(convertedValue)
-        } else if (selectedCurrency.value == "EUR") {
-            const convertedValue = inputCurrencyValue
-            currencyValueConverted.innerHTML = new Intl.NumberFormat("de-DE", {
-                style: "currency",
-                currency: "EUR"
-            }).format(convertedValue)
-        } else if (selectedCurrency.value == "GBP") {
-            const convertedValue = inputCurrencyValue
-            currencyValueConverted.innerHTML = new Intl.NumberFormat("en-UK", {
-                style: "currency",
-                currency: "GBP"
-            }).format(convertedValue)
-        } else if (selectedCurrency.value == "BTC") {
-            const convertedValue = inputCurrencyValue
-            currencyValueConverted.innerHTML = new Intl.NumberFormat(undefined, {
-                style: "currency",
-                currency: "BTC"
-            }).format(convertedValue)
-        } else if (selectedCurrency.value == "BRL") {
-            const convertedValue = inputCurrencyValue
-            currencyValueConverted.innerHTML = new Intl.NumberFormat("pt-BR", {
-                style: "currency",
-                currency: "BRL"
-            }).format(convertedValue)
         }
     }
 
