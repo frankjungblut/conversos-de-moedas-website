@@ -2,25 +2,40 @@ const convertButton = document.querySelector(".converter-button")
 const CurrentCurrency = document.querySelector(".currency-select-current") //moeda local
 const selectedCurrency = document.querySelector(".currency-select-to-convert") // moeda estrangeira
 
+async function btcToGbp() {
+    if (CurrentCurrency.value == "BTC") {
+        if (selectedCurrency.value == "GBP") {
+            const two = await fetch(`https://economia.awesomeapi.com.br/json/last/BTC-BRL,BRL-GBP`);
+            const newData = await two.json()
+            const one = newData.BTCBRL.bid
+            const four = newData.BRLGBP.bid
+            const data = one * four
+            return data
+        } else {
+            return null
+        }
+    }
+
+
+}
+
 async function getQuote() {
     try {
         const response = await fetch(`https://economia.awesomeapi.com.br/json/last/${CurrentCurrency.value}-${selectedCurrency.value}`);
-        
+
         if (!response.ok) {
             throw new Error('Erro ao obter cotação da API');
         }
-        
+
         const data = await response.json();
         console.log(`${CurrentCurrency.value}-${selectedCurrency.value}`);
         return data;
     } catch (error) {
         console.error('Erro ao obter cotação:', error.message);
-        if (CurrentCurrency.value == "BTC") {//EUR
-            if (selectedCurrency.value == "GBP") {
-                alert(`🇧🇷 Desculpe, ainda não temos esta contação. 😭\nVou melhorar prometo! 🙏\n\n🇬🇧 Sorry, we don't have this quotation yet. 😭\nI'll improve, I promise! 🙏 `)
-            }
-        }
-        return null; 
+
+        alert(`🇧🇷 Desculpe, ainda não temos esta contação. 😭\nVou melhorar prometo! 🙏\n\n🇬🇧 Sorry, we don't have this quotation yet. 😭\nI'll improve, I promise! 🙏 `)
+
+        return null;
     }
 }
 
@@ -97,9 +112,18 @@ function formatValues() {
 async function convertValues() {
     const inputCurrencyValue = document.querySelector(".input-currency").value // valor digitado pelo usuario
     const currencyValueConverted = document.querySelector(".currency-value-converted")
+    let finalPrice = 0
+    let price = 0
 
-     //Quando os pares de moedas são iguais
-     if ((CurrentCurrency.value == selectedCurrency.value)) {
+    if (CurrentCurrency.value == "BTC") {
+        if (selectedCurrency.value == "GBP") {
+            const quoteData = await btcToGbp()
+            finalPrice = quoteData
+        }
+    }
+
+    //Quando os pares de moedas são iguais
+    if ((CurrentCurrency.value == selectedCurrency.value)) {
         if (selectedCurrency.value == "USD") {
             currencyValueConverted.innerHTML = new Intl.NumberFormat("en-US", {
                 style: "currency",
@@ -129,10 +153,14 @@ async function convertValues() {
     }
 
     //precisa vir depois para não causar erro 
-    const quoteData = await getQuote()
-    const price = (quoteData[`${CurrentCurrency.value}${selectedCurrency.value}`].bid)
-    console.log(quoteData[`${CurrentCurrency.value}${selectedCurrency.value}`].bid)
-
+    if (!(CurrentCurrency.value == "BTC" && selectedCurrency.value == "GBP")) {
+        if (!(CurrentCurrency.value == selectedCurrency.value)) {
+            console.log("cheguei")
+            const quoteData = await getQuote()
+            price = (quoteData[`${CurrentCurrency.value}${selectedCurrency.value}`].bid)
+            console.log(quoteData[`${CurrentCurrency.value}${selectedCurrency.value}`].bid)
+        }
+    }
     //lógica para conversão de valores 
     if (!(CurrentCurrency.value == selectedCurrency.value)) {
         if (CurrentCurrency.value == "BRL") {//BRL
@@ -170,7 +198,7 @@ async function convertValues() {
         }
         //converter qualquer moeda para o real 
         if (selectedCurrency.value == "BRL") {//BRL
-            const convertedValue = price / inputCurrencyValue
+            const convertedValue = price * inputCurrencyValue
             currencyValueConverted.innerHTML = new Intl.NumberFormat("pt-BR", {
                 style: "currency",
                 currency: "BRL"
@@ -195,6 +223,12 @@ async function convertValues() {
                 currencyValueConverted.innerHTML = new Intl.NumberFormat(undefined, {
                     style: "currency",
                     currency: "BTC"
+                }).format(convertedValue)
+            }else if (selectedCurrency.value == "BRL") {//BRL
+                const convertedValue = price / inputCurrencyValue
+                currencyValueConverted.innerHTML = new Intl.NumberFormat("pt-BR", {
+                    style: "currency",
+                    currency: "BRL"
                 }).format(convertedValue)
             }
         }
@@ -256,6 +290,11 @@ async function convertValues() {
                     style: "currency",
                     currency: "EUR"
                 }).format(convertedValue)
+            } else if (selectedCurrency.value == "GBP") {
+                currencyValueConverted.innerHTML = new Intl.NumberFormat("en-UK", {
+                    style: "currency",
+                    currency: "GBP"
+                }).format(finalPrice)
             }
         }
     }
