@@ -6,8 +6,16 @@
     outline: none;
 }
 
-body {
-    background-color: #8A51FC;
+
+.flag {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    z-index: -1;
+    filter: brightness(70%);
 }
 
 label {
@@ -24,7 +32,7 @@ button {
     height: 48px;
     flex-shrink: 0;
     border-radius: 5px;
-    background: #772FD3;
+    background: #9f904e;
     color: #FFF;
     font-size: 18px;
     font-style: normal;
@@ -41,7 +49,7 @@ input {
     border-radius: 4px;
     height: 48px;
     width: 100%;
-    margin-bottom: 24px;
+    margin-bottom: 18px;
     appearance: none;
     padding-left: 18px;
     font-weight: 700;
@@ -51,6 +59,18 @@ input {
 
 button:active {
     opacity: 0.4;
+}
+
+button:hover {
+    border: 2px solid #d8c687;
+}
+
+select:hover {
+    border: 2px solid #d8c687;
+}
+
+input:hover {
+    border: 2px solid #d8c687;
 }
 
 .logo {
@@ -63,18 +83,18 @@ button:active {
     display: block;
     width: 375px;
     border-radius: 20px;
-    background: #F4F4F4;
+    background: #fef8e2;
     margin: 0 auto;
-    padding: 44px 24px 23px;
+    padding: 5px 24px 16px;
 }
 
 .section-box {
-    margin-top: 36px;
+    margin-top: 20px;
     width: 327px;
     padding: 16px;
     flex-shrink: 0;
     border-radius: 20px;
-    border: 1px solid #772FD3;
+    border: 1px solid #9f904e;
     display: flex;
     justify-content: center;
     align-items: center;
