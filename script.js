@@ -18,8 +18,9 @@ async function selectedIsBtc() {
         return data;
     } catch (error) {
         console.error('Erro ao obter cotação:', error.message);
-
-        alert(`🇧🇷 Desculpe, ainda não temos esta contação. 😭\nVou melhorar prometo! 🙏\n\n🇬🇧 Sorry, we don't have this quotation yet. 😭\nI'll improve, I promise! 🙏 `)
+        if (CurrentCurrency.value != selectedCurrency.value) {
+            alert(`🇧🇷 Desculpe, ainda não temos esta contação. 😭\nVou melhorar prometo! 🙏\n\n🇬🇧 Sorry, we don't have this quotation yet. 😭\nI'll improve, I promise! 🙏 `)
+        }
 
         return null;
     }
@@ -148,7 +149,7 @@ function formatValues() {
 async function convertValues() {
     const inputCurrencyValue = document.querySelector(".input-currency").value // valor digitado pelo usuario
     const currencyValueConverted = document.querySelector(".currency-value-converted")
-    let finalPrice = 0 
+    let finalPrice = 0
     let price = 0
 
     //precisei fazer a conversão na mão pois não suporte da API para conversão direta
@@ -390,23 +391,23 @@ function currencyChange() {
     if (currentCurrency == "USD") {
         currentName.innerHTML = "Dólar americano"
         currentImg.src = "assets/estados-unidos.png"
-        userInput.placeholder  = "$ 10000"
+        userInput.placeholder = "$ 10000"
     } else if (currentCurrency == "EUR") {
         currentName.innerHTML = "Euro"
         currentImg.src = "assets/euro.png"
-        userInput.placeholder  = "€ 10000"
+        userInput.placeholder = "€ 10000"
     } else if (currentCurrency == "GBP") {
         currentName.innerHTML = "Libra"
         currentImg.src = "assets/libra.png"
-        userInput.placeholder  = "£ 10000"
+        userInput.placeholder = "£ 10000"
     } else if (currentCurrency == "BTC") {
         currentName.innerHTML = "Bitcoin"
         currentImg.src = "assets/bitcoin.png"
-        userInput.placeholder  = "₿ 1"
+        userInput.placeholder = "₿ 1"
     } else if (currentCurrency == "BRL") {
         currentName.innerHTML = "Real"
         currentImg.src = "assets/brasil.png"
-        userInput.placeholder  = "R$ 10000"
+        userInput.placeholder = "R$ 10000"
     }
 
     //moeda convertida
