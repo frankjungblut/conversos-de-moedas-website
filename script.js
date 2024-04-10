@@ -273,7 +273,7 @@ async function convertValues() {
                     currency: "BTC"
                 }).format(convertedValue)
             } else if (selectedCurrency.value == "BRL") {//BRL
-                const convertedValue = price / inputCurrencyValue
+                const convertedValue = price * inputCurrencyValue
                 currencyValueConverted.innerHTML = new Intl.NumberFormat("pt-BR", {
                     style: "currency",
                     currency: "BRL"
